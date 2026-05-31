@@ -18,18 +18,28 @@ bot.StartReceiving(
 
         Console.WriteLine(message.Text);
 
-        await bot.SendMessage(
-            chatId: message.Chat.Id,
-            text:"Привет"
-            
-            );
+        if(message.Text == "/start") {
+
+            await bot.SendMessage(message.Chat.Id, "Привет");
+}           
+        else if(message.Text == "/price")
+        {
+            await bot.SendMessage(message.Chat.Id, "не знаю такой цены");
+        }
+
 
     },
 
     errorHandler: async (bot, Exception, CancellationToken) =>
     {
         Console.WriteLine(Exception.Message);
+    
+    
     }
+
+    
+
+
 
 
 
